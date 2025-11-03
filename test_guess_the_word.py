@@ -17,7 +17,7 @@ animal_list = ["alligator", "bear","camel", "dolphin", "elephant", "fox", "giraf
 secret_animal = random.choice(animal_list)
 
 # introduction to game for user. present the list of animals to user
-print(f"\nLet's play guess the secret animal!")
+print(f"\nLet's play, 'Guess the secret animal'!")
 print("Here is the list of animals. Guess the selected one!:\n")
 for animal in animal_list:
     print(animal, end=", ")
@@ -30,3 +30,15 @@ tries_left = 8
 while tries_left > 0:
     print(f"\nYou have {tries_left} tries.")
     guess = input("Guess the animal - no hints!: ").lower()
+
+# conditional statement stored in loop. If animal is correctly guessed, stop program, otherwise, continue and reduce counter -1
+    if guess == secret_animal:
+        print(f"Congratulations!! You guessed correctly! The secret animal is'{secret_animal}'.")
+        break
+    else:
+        print(f"Sorry, {guess} is not the secret animal. Please try again!")
+        tries_left -= 1
+
+# once user runs out of tries, reveal secret animal to user
+if tries_left == 0:
+    print(f"\nSorry, you've run out of tries. The secret animal was '{secret_animal}'.")
