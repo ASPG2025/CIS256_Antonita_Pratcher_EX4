@@ -28,3 +28,17 @@ user_guess = []
 # create loop for game
 while try_left > 0 and '_' in underscore_random_word: # for condition, tries are more than zero and there are letters that are still underscores
     print("\nCurrent word: ", end="")
+
+    for letter in underscore_random_word: # prints the guessed letter
+        print(letter, end=" ")
+    print()  # skip a line
+
+    print("Guessed letters: ", end="") # prints all guessed letters
+    for letter in user_guess:
+        print(letter, end=" ")
+    print()  # skip a line
+
+    print(f"Tries left: {try_left}") # lets user know number of tries left
+
+    # stores the user's guess in a
+    guess = input("Guess a letter: ").lower()
