@@ -9,7 +9,7 @@ import random
 
 # create list of words for game
 words = ["apple", "blueberry", "cherry", "date", "elderberry", "fig",
-         "guava", "honeydew", "jackfruit", "kiwi", "lemon", "mango", "nectarine,"
+         "guava", "honeydew", "jackfruit", "kiwi", "lemon", "mango", "nectarine",
          "orange", "peach", "raspberry", "strawberry", "tangerine", "watermelon"]
 
 # store word chosen in a variable
@@ -24,6 +24,9 @@ try_left = max_try
 
 # create list of letters already guesses
 user_guess = []
+
+# introduction to game for user
+print(f"\nLet's play guess the fruit!")
 
 # create loop for game
 while try_left > 0 and '_' in underscore_random_word: # for condition, tries are more than zero and there are letters that are still underscores
@@ -40,5 +43,24 @@ while try_left > 0 and '_' in underscore_random_word: # for condition, tries are
 
     print(f"Tries left: {try_left}") # lets user know number of tries left
 
-    # stores the user's guess in a
+    # stores the user's guess in a variable ensuring input is lowercase
     guess = input("Guess a letter: ").lower()
+
+# add letter to list of tried letters
+    user_guess.append(guess)
+
+    # loop affirming that the letted tried is in word. loop circles through random word
+    if guess in random_word:
+        print(f"One step closer! '{guess}' is in the word!")
+        for point in range(len(random_word)):
+            if random_word[point] == guess:
+                underscore_random_word[point] = guess 
+    else:
+        print(f"Please try again.'{guess}' is not in the word.")
+        try_left -= 1 # counter that reduces number of tries left when letter is incorrectly guessed
+
+# confirms if user successfully guessed word 
+if '_' not in underscore_random_word:
+    print(f"\nCongratulations! You correctly guessed: {random_word}")
+else:
+    print(f"\nSorry, you've run out of tries. The word was: {random_word}")
