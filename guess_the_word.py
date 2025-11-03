@@ -7,7 +7,7 @@
 
 import random
 
-# create list of words for game
+# create list of words for the game
 words = ["apple", "blueberry", "cherry", "date", "elderberry", "fig",
          "guava", "honeydew", "jackfruit", "kiwi", "lemon", "mango", "nectarine",
          "orange", "peach", "raspberry", "strawberry", "tangerine", "watermelon"]
